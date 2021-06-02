@@ -45,7 +45,7 @@ function populateShows(shows) {
            <div class="card-body">
              <h5 class="card-title">${show.name}</h5>
              <p class="card-text">${show.summary}</p>
-             <button id='episode-btn'>Episodes</button>
+             <button class='episode-btn'>Episodes</button>
            </div>
          </div>
        </div>
@@ -122,8 +122,8 @@ async function getEpisodes(id) {
   
 
 
-  $('#episode-btn').on('click',  async function episodeClick(e) {
-
+  $('#shows-list').on('click', '.episode-btn',  async function episodeClick(e) {
+    //why not use the button?
    let id = $(e.target).closest('.card').data('showId');
 
    let episodes = await getEpisodes(id);
